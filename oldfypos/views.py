@@ -57,7 +57,7 @@ def sale_flow(request):
 
     content=tem.render(cont)
     return HttpResponse(content)
-
+#以下方法为将查询到的数导出为excel表格
 def export_xls(request):
      conn = pymssql.connect(host='192.168.0.236',user='select',password='Sl83517668',database='UFTData810145_000002',charset="utf8")
      cx_sql='select * from V_Shop_InventorySaleDetail WHERE shop LIKE ' + '\'%' +shop+ '%\'' +'and orderdate between '+'\''+str(cx_startdate)+' 00:00:00'+'\''+' and \''+str(cx_enddate)+' 00:00:00'+'\''+' ORDER by shop'
